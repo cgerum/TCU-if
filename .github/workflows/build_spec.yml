@@ -1,6 +1,11 @@
 
 # Simple workflow for deploying static content to GitHub Pages
 name: BUild file
+on:
+  push:
+    branches:
+      - "*"
+  
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -12,3 +17,8 @@ jobs:
           root_file: |
             tcu_spec/main.tex
           work_in_root_file_dir: true
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.2.0
+        with:
+          name: # optional, default is artifact
+          path: tcu_spec.pdf
