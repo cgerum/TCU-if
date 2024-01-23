@@ -14,12 +14,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - uses: xu-cheng/latex-action@v3
+        name: Build
         with:
           root_file: |
-            tcu_spec/main.tex
+            spec/main.tex
           work_in_root_file_dir: true
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v4.2.0
         with:
-          name: # optional, default is artifact
-          path: tcu_spec/main.pdf
+          path: spec/main.pdf
